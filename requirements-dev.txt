@@ -1,0 +1,9 @@
+# These are the test/dev requirements
+.
+
+# for tests
+pytest
+tox
+
+# to build docs
+Sphinx
