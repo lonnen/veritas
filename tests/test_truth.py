@@ -57,7 +57,7 @@ class TestTruth:
             Truth,
             Truth()
         ]
-        for test_value in enumerate(test_values):
+        for test_value in test_values:
             assert _ < test_value
             assert _ <= test_value
             assert _ == test_value
@@ -116,8 +116,69 @@ class TestTruth:
 
 
     def test_numeric_types(self):
+        '''binary ops, bitwise ops,
+        '''
+        _ = Truth()
 
-        pass
+        test_values = [
+            float('-inf'),
+            #D('-1e425000000'),
+            -1e308,
+            -3.14,
+            -2,
+            1e-320,
+            7e200
+        ]
+        for test_value in test_values:
+            assert _ + test_value
+            assert _ - test_value
+            assert _ * test_value
+            assert _ / test_value
+            assert _ // test_value
+            assert _ % test_value
+            assert divmod(_, test_value)
+            assert pow(_, test_value)
+            assert _ ** test_value
+
+            # associative?
+            assert test_value + _
+            assert test_value - _
+            assert test_value * _
+            assert test_value / _
+            assert test_value // _
+            assert test_value % _
+            assert divmod(test_value, _)
+            assert pow(test_value, _)
+            assert test_value ** _
+
+            # rsub
+            _ += test_value
+            _ -= test_value
+            _ *= test_value
+            _ /= test_value
+            _ //= test_value
+            _ %= test_value
+            _ **= test_value
+
+        assert _ << 1
+        assert _ >> 1
+        assert _ & 1
+        assert _ ^ 1
+        assert _ | 1
+
+        assert 1 & _
+        assert 1 ^ _
+        assert 1 | _
+
+        _ &= 1
+        _ ^= 1
+        _ |= 1
+
+        assert abs(_)
+        assert -_
+        assert +_
+        assert ~_
+
 
     def test_context_manager(self):
         pass

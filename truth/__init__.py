@@ -89,7 +89,7 @@ class Truth(object):
     __pow__ = _firstarg
     __lshift__ = _firstarg
     __rshift__ = _firstarg
-    __add__ = _firstarg
+    __and__ = _firstarg
     __xor__ = _firstarg
     __or__ = _firstarg
 
@@ -105,25 +105,25 @@ class Truth(object):
     __rpow__ = _firstarg
     __rlshift__ = _firstarg
     __rrshift__ = _firstarg
-    __radd__ = _firstarg
+    __rand__ = _firstarg
     __rxor__ = _firstarg
     __ror__ = _firstarg
 
     # in-place operations
-    __iadd__ = _firstarg
-    __isub__ = _firstarg
-    __imul__ = _firstarg
-    __imatmul__ = _firstarg
-    __itruediv__ = _firstarg
-    __ifloordiv__ = _firstarg
-    __imod__ = _firstarg
+    __iadd__ = _self
+    __isub__ = _self
+    __imul__ = _self
+    __imatmul__ = _self
+    __itruediv__ = _self
+    __ifloordiv__ = _self
+    __imod__ = _self
     # there is no __idivmod__
-    __ipow__ = _firstarg
-    __ilshift__ = _firstarg
-    __irshift__ = _firstarg
-    __iadd__ = _firstarg
-    __ixor__ = _firstarg
-    __ior__ = _firstarg
+    __ipow__ = _self
+    __ilshift__ = _self
+    __irshift__ = _self
+    __iand__ = _self
+    __ixor__ = _self
+    __ior__ = _self
 
     # unary arithmetic operations
     __neg__ = _self
