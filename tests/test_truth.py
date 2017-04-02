@@ -181,13 +181,5 @@ class TestTruth:
 
 
     def test_context_manager(self):
-        pass
-
-    def test_awaitable(self):
-        pass
-
-    def test_asynchronous_iterators(self):
-        pass
-
-    def test_asynchronous_context_managers(self):
-        pass
+        with Truth() as x:
+            assert x
