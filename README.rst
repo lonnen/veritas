@@ -1,15 +1,14 @@
 veritas
 ======
 
-**This is an experiment. Don't use this, yet.**
+Veritas is a Python library implementing a throwaway variable that attempts to return true no matter how it is called upon.
 
-Teritas is a Python library that attempts to implement a throwaway variable that implements most interfaces and makes a best-faith effort to evaluate to true no matter how an implementation calls on it.
+It is intended for writing tests where you must provide some variables to an interface but your particular test will never read what happens to them. Veritas attempts to make sure that whatever the side effects on these variables it will not derail program execution. It implements comparable, numeric, callable, container, iterator, binary, in-place, unary, context manager, and async interfaces.
+
 
 :Code:          https://github.com/lonnen/veritas/
 :Issues:        https://github.com/lonnen/veritas/issues
 :License:       BSD 3-clause; See LICENSE
-:Contributors:  See AUTHORS.rst
-:Documentation: FIXME
 
 Install
 =======
@@ -20,9 +19,6 @@ From PyPI
 Run::
 
     $ pip install veritas
-
-FIXME: Doesn't work until we post it to PyPI.
-
 
 For hacking
 -----------
@@ -37,4 +33,4 @@ Run::
 Usage
 =====
 
-See documentation for configuration and usage.
+see tests for example usage
