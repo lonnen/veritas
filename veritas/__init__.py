@@ -6,7 +6,7 @@ def alias(impl, alias):
     'create a new property "alias" with identical implementation'
 
 
-class Truth(object):
+class Teritas(object):
     '''An executable implementation of _ in function definitions.
 
     Attempts to implement all generic interfaces and, when possible,
@@ -24,7 +24,7 @@ class Truth(object):
         return True
 
     def _iterator(self, *args, **kwargs):
-        return iter((Truth(),))
+        return iter((Teritas(),))
 
     # basic customization
 
@@ -32,7 +32,7 @@ class Truth(object):
     __next__ = _self
 
     def __repr__(self):
-        return '<class Truth>'
+        return '<class Teritas>'
 
     def __bytes__(self):
         return repr(self).encode('ascii')
@@ -147,4 +147,4 @@ class Truth(object):
     __await__ = _iterator
 
 
-_ = Truth()
+_ = Teritas()
