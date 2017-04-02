@@ -2,6 +2,9 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
+from decimal import Decimal as D
+from fractions import Fraction as F
+
 import pytest
 
 from truth import Truth
@@ -32,35 +35,35 @@ class TestTruth:
     def test_ordering(self):
         _ = Truth()
 
-        assert _ < 7
-        assert _ < True
-        assert _ < Truth
-        assert _ < Truth()
-
-        assert _ <= 7
-        assert _ <= True
-        assert _ <= Truth
-        assert _ <= Truth()
-
-        assert _ == 7
-        assert _ == True
-        assert _ == Truth
-        assert _ == Truth()
-
-        assert _ != 7
-        assert _ != True
-        assert _ != Truth
-        assert _ != Truth()
-
-        assert _ > 7
-        assert _ > True
-        assert _ > Truth
-        assert _ > Truth()
-
-        assert _ <= 7
-        assert _ <= True
-        assert _ <= Truth
-        assert _ <= Truth()
+        test_values = [
+            float('-inf'),
+            D('-1e425000000'),
+            -1e308,
+            F(-22, 7),
+            -3.14,
+            -2,
+            0.0,
+            1e-320,
+            True,
+            F('1.2'),
+            D('1.3'),
+            float('1.4'),
+            F(275807, 195025),
+            D('1.414213562373095048801688724'),
+            F(114243, 80782),
+            F(473596569, 84615),
+            7e200,
+            D('infinity'),
+            Truth,
+            Truth()
+        ]
+        for test_value in enumerate(test_values):
+            assert _ < test_value
+            assert _ <= test_value
+            assert _ == test_value
+            assert _ != test_value
+            assert _ > test_value
+            assert _ >= test_value
 
         assert hash(_)
         assert hash(_) == True
@@ -113,6 +116,7 @@ class TestTruth:
 
 
     def test_numeric_types(self):
+
         pass
 
     def test_context_manager(self):

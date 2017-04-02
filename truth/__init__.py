@@ -1,4 +1,3 @@
-from functools import total_ordering
 
 __version__ = '0.1.0'
 
@@ -7,7 +6,6 @@ def alias(impl, alias):
     'create a new property "alias" with identical implementation'
 
 
-@total_ordering
 class Truth(object):
     '''An executable implementation of _ in function definitions.
 
@@ -44,7 +42,9 @@ class Truth(object):
     __eq__ = _true
     __ne__ = _true
     __lt__ = _true
+    __le__ = _true
     __gt__ = _true
+    __ge__ = _true
 
     __hash__ = _true
     __bool__ = _true
