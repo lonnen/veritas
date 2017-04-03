@@ -1,12 +1,12 @@
 
-__version__ = '0.1.1'
+__version__ = '0.1.2'
 
 
 def alias(impl, alias):
     'create a new property "alias" with identical implementation'
 
 
-class Teritas(object):
+class Veritas(object):
     '''An executable implementation of _ in function definitions.
 
     Attempts to implement all generic interfaces and, when possible,
@@ -24,7 +24,7 @@ class Teritas(object):
         return True
 
     def _iterator(self, *args, **kwargs):
-        return iter((Teritas(),))
+        return iter((Veritas(),))
 
     # basic customization
 
@@ -32,7 +32,7 @@ class Teritas(object):
     __next__ = _self
 
     def __repr__(self):
-        return '<class Teritas>'
+        return '<class Veritas>'
 
     def __bytes__(self):
         return repr(self).encode('ascii')
@@ -147,4 +147,4 @@ class Teritas(object):
     __await__ = _iterator
 
 
-_ = Teritas()
+_ = Veritas()

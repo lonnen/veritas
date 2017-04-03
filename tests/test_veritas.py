@@ -7,33 +7,33 @@ from fractions import Fraction as F
 
 import pytest
 
-from veritas import Teritas
+from veritas import Veritas
 
-class TestTeritas:
+class TestVeritas:
 
     def test_basic_customization(self):
         # init
-        assert Teritas
-        assert Teritas()
-        assert Teritas('any', 'arguments', (2,3,4), dir(type))
+        assert Veritas
+        assert Veritas()
+        assert Veritas('any', 'arguments', (2,3,4), dir(type))
 
-        _ = Teritas()
+        _ = Veritas()
 
         # repr
-        assert repr(_) == '<class Teritas>'
+        assert repr(_) == '<class Veritas>'
 
         # str
-        assert str(_) == '<class Teritas>'
+        assert str(_) == '<class Veritas>'
 
         # TODO: bytes
-        assert bytes(_) == b'<class Teritas>'
+        assert bytes(_) == b'<class Veritas>'
 
         # format
-        assert format(_) == '<class Teritas>'
+        assert format(_) == '<class Veritas>'
 
 
     def test_ordering(self):
-        _ = Teritas()
+        _ = Veritas()
 
         test_values = [
             float('-inf'),
@@ -54,8 +54,8 @@ class TestTeritas:
             F(473596569, 84615),
             7e200,
             D('infinity'),
-            Teritas,
-            Teritas()
+            Veritas,
+            Veritas()
         ]
         for test_value in test_values:
             assert _ < test_value
@@ -72,7 +72,7 @@ class TestTeritas:
 
 
     def test_attribute_access(self):
-        _ = Teritas()
+        _ = Veritas()
         assert _.any_method() == True
 
         _.any_other_method = lambda x: False
@@ -81,24 +81,24 @@ class TestTeritas:
         del _.yet_another_method
         assert _.yet_another_method() == True
 
-        # Teritas is returned, which means ordering rules work!
+        # Veritas is returned, which means ordering rules work!
         assert _.final_method() != True
         assert _.final_method() == True
         assert _.final_method() < True
         assert _.final_method() > True
 
-        assert repr(_.final_method()) == '<class Teritas>'
+        assert repr(_.final_method()) == '<class Veritas>'
 
 
     def test_callable(self):
-        assert Teritas
-        assert Teritas()
-        assert Teritas()()
-        assert Teritas('any', 'arguments')('=')(true=True)
+        assert Veritas
+        assert Veritas()
+        assert Veritas()()
+        assert Veritas('any', 'arguments')('=')(true=True)
 
 
     def test_container(self):
-        _ = Teritas()
+        _ = Veritas()
 
         assert len(_)
 
@@ -118,7 +118,7 @@ class TestTeritas:
     def test_numeric_types(self):
         '''binary ops, bitwise ops,
         '''
-        _ = Teritas()
+        _ = Veritas()
 
         test_values = [
             float('-inf'),
@@ -181,5 +181,5 @@ class TestTeritas:
 
 
     def test_context_manager(self):
-        with Teritas() as x:
+        with Veritas() as x:
             assert x
