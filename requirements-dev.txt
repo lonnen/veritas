@@ -1,6 +1,9 @@
 # These are the test/dev requirements
 .
 
+black
+flake8
+
 # for tests
 pytest
 tox
