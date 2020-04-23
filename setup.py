@@ -23,7 +23,7 @@ def get_version():
 setup(
     name="veritas",
     version=get_version(),
-    description="an executable implementation of _ in function definitions",
+    description="an executable implementation of the throwaway `_`",
     long_description=readme,
     license="BSD",
     author="lonnen",
@@ -32,12 +32,13 @@ setup(
     install_requires=[],
     keywords='',
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Natural Language :: English',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
     ],
     test_suite='tests',
 )
