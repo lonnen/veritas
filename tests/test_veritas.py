@@ -5,9 +5,8 @@
 from decimal import Decimal as D
 from fractions import Fraction as F
 
-import pytest
-
 from veritas import Veritas
+
 
 class TestVeritas:
 
@@ -15,7 +14,7 @@ class TestVeritas:
         # init
         assert Veritas
         assert Veritas()
-        assert Veritas('any', 'arguments', (2,3,4), dir(type))
+        assert Veritas('any', 'arguments', (2, 3, 4), dir(type))
 
         _ = Veritas()
 
