@@ -1,40 +1,29 @@
-.PHONY: clean-pyc clean-build
+DEFAULT_GOAL := help
+PROJECT=veritas
 
+.PHONY: help
 help:
-	@echo "clean-build - remove build artifacts"
-	@echo "clean-pyc - remove Python file artifacts"
-	@echo "lint - check style with flake8"
-	@echo "test - run tests quickly with the default Python"
-	@echo "testall - run tests on every Python version with tox"
-	@echo "release - package and upload a release"
-	@echo "sdist - package"
+	@echo "Available rules:"
+	@fgrep -h "##" Makefile | fgrep -v fgrep | sed 's/\(.*\):.*##/\1:/'
 
-clean: clean-build clean-pyc
-
-clean-build:
+.PHONY: clean
+clean: ## remove build artifacts
 	rm -fr build/
 	rm -fr dist/
 	rm -fr *.egg-info
+	find ${PROJECT} -name '*.pyc' -exec rm -f {} +
+	find ${PROJECT} -name '*.pyo' -exec rm -f {} +
+	find ${PROJECT} -name '*~' -exec rm -f {} +
 
-clean-pyc:
-	find . -name '*.pyc' -exec rm -f {} +
-	find . -name '*.pyo' -exec rm -f {} +
-	find . -name '*~' -exec rm -f {} +
+.PHONY: lint
+lint: ## Lint and black reformat files
+	flake8 ${PROJECT} tests
+	black --target-version=py37 ${PROJECT} tests
 
-lint:
-	flake8 veritas tests
-	black --target-version=py27
-
-test: lint
+.PHONY: help
+test: ## run tests with single local version of python
 	py.test
 
-test-all:
+.PHONY: help
+test-all: ## run tests for all versions of python
 	tox
-
-release: clean
-	# FIXME: finish this
-	python setup.py sdist upload
-
-sdist: clean
-	python setup.py sdist
-	ls -l dist
