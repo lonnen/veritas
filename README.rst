@@ -1,5 +1,5 @@
 veritas
-======
+=======
 
 Veritas is a Python library implementing a throwaway variable that attempts to return true no matter how it is called upon.
 
