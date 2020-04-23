@@ -5,10 +5,12 @@
 from decimal import Decimal as D
 from fractions import Fraction as F
 
+import unittest
+
 from veritas import Veritas
 
 
-class TestVeritas:
+class TestVeritas(unittest.TestCase):
 
     def test_basic_customization(self):
         # init
@@ -19,17 +21,16 @@ class TestVeritas:
         _ = Veritas()
 
         # repr
-        assert repr(_) == '<class Veritas>'
+        self.assertEqual(repr(_), '<class Veritas>')
 
         # str
-        assert str(_) == '<class Veritas>'
+        self.assertEqual(str(_), '<class Veritas>')
 
-        # TODO: bytes
-        assert bytes(_) == b'<class Veritas>'
+        # bytes
+        self.assertEqual(bytes(_), b'<class Veritas>')
 
         # format
-        assert format(_) == '<class Veritas>'
-
+        self.assertEqual(format(_), '<class Veritas>')
 
     def test_ordering(self):
         _ = Veritas()
@@ -57,44 +58,40 @@ class TestVeritas:
             Veritas()
         ]
         for test_value in test_values:
-            assert _ < test_value
-            assert _ <= test_value
-            assert _ == test_value
-            assert _ != test_value
-            assert _ > test_value
-            assert _ >= test_value
+            self.assertLess(_, test_value)
+            self.assertLessEqual(_, test_value)
+            self.assertEqual(_, test_value)
+            self.assertNotEqual(_, test_value)
+            self.assertGreater(_, test_value)
+            self.assertGreaterEqual(_, test_value)
 
         assert hash(_)
-        assert hash(_) == True
-
-        assert bool(_) == True
-
+        self.assertTrue(hash(_))
+        self.assertTrue(bool(_))
 
     def test_attribute_access(self):
         _ = Veritas()
-        assert _.any_method() == True
+        self.assertTrue(_.any_method())
 
         _.any_other_method = lambda x: False
-        assert _.any_other_method() == True
+        self.assertTrue(_.any_other_method())
 
         del _.yet_another_method
-        assert _.yet_another_method() == True
+        self.assertTrue(_.yet_another_method())
 
         # Veritas is returned, which means ordering rules work!
-        assert _.final_method() != True
-        assert _.final_method() == True
-        assert _.final_method() < True
-        assert _.final_method() > True
+        self.assertLessEqual(_.final_method(), _.any_method())
+        self.assertLess(_.final_method(), _.any_method())
+        self.assertGreaterEqual(_.final_method(), _.any_method())
+        self.assertGreater(_.final_method(), _.any_method())
 
-        assert repr(_.final_method()) == '<class Veritas>'
-
+        self.assertEqual(repr(_.final_method()), '<class Veritas>')
 
     def test_callable(self):
         assert Veritas
         assert Veritas()
         assert Veritas()()
         assert Veritas('any', 'arguments')('=')(true=True)
-
 
     def test_container(self):
         _ = Veritas()
@@ -112,8 +109,6 @@ class TestVeritas:
         for x in _:
             assert x
 
-
-
     def test_numeric_types(self):
         '''binary ops, bitwise ops,
         '''
@@ -121,7 +116,7 @@ class TestVeritas:
 
         test_values = [
             float('-inf'),
-            #D('-1e425000000'),
+            # D('-1e425000000'),
             -1e308,
             -3.14,
             -2,
@@ -177,7 +172,6 @@ class TestVeritas:
         assert -_
         assert +_
         assert ~_
-
 
     def test_context_manager(self):
         with Veritas() as x:

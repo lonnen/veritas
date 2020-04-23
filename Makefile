@@ -25,7 +25,7 @@ lint:
 	flake8 veritas tests
 	black --target-version=py27
 
-test:
+test: lint
 	py.test
 
 test-all:
