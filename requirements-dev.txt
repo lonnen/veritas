@@ -8,5 +8,8 @@ flake8
 pytest
 tox
 
+# for ci
+tox-gh-actions
+
 # to build docs
 Sphinx
