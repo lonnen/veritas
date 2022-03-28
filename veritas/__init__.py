@@ -1,10 +1,4 @@
-
-__version__ = '0.1.4'
-
-
-def alias(impl, alias):
-    'create a new property "alias" with identical implementation'
-
+__version__ = '0.1.5'
 
 class Veritas(object):
     '''An executable implementation of _ in function definitions.
