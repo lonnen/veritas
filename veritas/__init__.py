@@ -1,12 +1,13 @@
-__version__ = '0.1.5'
+__version__ = "0.1.5"
+
 
 class Veritas(object):
-    '''An executable implementation of _ in function definitions.
+    """An executable implementation of _ in function definitions.
 
     Attempts to implement all generic interfaces and, when possible,
     always evaluate to True. Inspired by mock._ANY and
     fjord.base.tests.EqualAnything
-    '''
+    """
 
     def _void(self, *args, **kwargs):
         return
@@ -26,10 +27,10 @@ class Veritas(object):
     __next__ = _self
 
     def __repr__(self):
-        return '<class Veritas>'
+        return "<class Veritas>"
 
     def __bytes__(self):
-        return repr(self).encode('ascii')
+        return repr(self).encode("ascii")
 
     # ordering
     # mostly handled by @total_ordering
