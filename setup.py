@@ -29,8 +29,6 @@ setup(
     author="lonnen",
     url='https://github.com/lonnen/veritas',
     packages=find_packages(),
-    install_requires=[],
-    keywords='',
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
