@@ -7,7 +7,10 @@ It is intended for writing tests where you must provide some variables to an int
 
 Needing this is a smell, but it can help you get things moving without requiring you to refactor the whole system.
 
-[![CI](https://github.com/lonnen/veritas/actions/workflows/main.yml/badge.svg)](https://github.com/lonnen/veritas/actions/workflows/main.yml)
+|Build Status|
+
+.. |Build Status| image:: https://github.com/lonnen/veritas/actions/workflows/main.yml/badge.svg?branch=main
+   :target: https://github.com/lonnen/veritas/actions/workflows/main.yml
 
 :Code:          https://github.com/lonnen/veritas/
 :Issues:        https://github.com/lonnen/veritas/issues
