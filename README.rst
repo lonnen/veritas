@@ -26,7 +26,7 @@ For hacking
 Run::
 
     $ git clone https://github.com/lonnen/veritas
-    # Create a virtualenvironment
+    # Create and activate virtualenvironment, left to the reader as an excercise
     $ pip install -r requirements-dev.txt
 
 
