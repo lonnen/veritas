@@ -11,33 +11,32 @@ from veritas import Veritas
 
 
 class TestVeritas(unittest.TestCase):
-
     def test_basic_customization(self):
         # init
         assert Veritas
         assert Veritas()
-        assert Veritas('any', 'arguments', (2, 3, 4), dir(type))
+        assert Veritas("any", "arguments", (2, 3, 4), dir(type))
 
         _ = Veritas()
 
         # repr
-        self.assertEqual(repr(_), '<class Veritas>')
+        self.assertEqual(repr(_), "<class Veritas>")
 
         # str
-        self.assertEqual(str(_), '<class Veritas>')
+        self.assertEqual(str(_), "<class Veritas>")
 
         # bytes
-        self.assertEqual(bytes(_), b'<class Veritas>')
+        self.assertEqual(bytes(_), b"<class Veritas>")
 
         # format
-        self.assertEqual(format(_), '<class Veritas>')
+        self.assertEqual(format(_), "<class Veritas>")
 
     def test_ordering(self):
         _ = Veritas()
 
         test_values = [
-            float('-inf'),
-            D('-1e425000000'),
+            float("-inf"),
+            D("-1e425000000"),
             -1e308,
             F(-22, 7),
             -3.14,
@@ -45,17 +44,17 @@ class TestVeritas(unittest.TestCase):
             0.0,
             1e-320,
             True,
-            F('1.2'),
-            D('1.3'),
-            float('1.4'),
+            F("1.2"),
+            D("1.3"),
+            float("1.4"),
             F(275807, 195025),
-            D('1.414213562373095048801688724'),
+            D("1.414213562373095048801688724"),
             F(114243, 80782),
             F(473596569, 84615),
             7e200,
-            D('infinity'),
+            D("infinity"),
             Veritas,
-            Veritas()
+            Veritas(),
         ]
         for test_value in test_values:
             self.assertLess(_, test_value)
@@ -85,13 +84,13 @@ class TestVeritas(unittest.TestCase):
         self.assertGreaterEqual(_.final_method(), _.any_method())
         self.assertGreater(_.final_method(), _.any_method())
 
-        self.assertEqual(repr(_.final_method()), '<class Veritas>')
+        self.assertEqual(repr(_.final_method()), "<class Veritas>")
 
     def test_callable(self):
         assert Veritas
         assert Veritas()
         assert Veritas()()
-        assert Veritas('any', 'arguments')('=')(true=True)
+        assert Veritas("any", "arguments")("=")(true=True)
 
     def test_container(self):
         _ = Veritas()
@@ -110,18 +109,17 @@ class TestVeritas(unittest.TestCase):
             assert x
 
     def test_numeric_types(self):
-        '''binary ops, bitwise ops,
-        '''
+        """binary ops, bitwise ops,"""
         _ = Veritas()
 
         test_values = [
-            float('-inf'),
+            float("-inf"),
             # D('-1e425000000'),
             -1e308,
             -3.14,
             -2,
             1e-320,
-            7e200
+            7e200,
         ]
         for test_value in test_values:
             assert _ + test_value
@@ -132,7 +130,7 @@ class TestVeritas(unittest.TestCase):
             assert _ % test_value
             assert divmod(_, test_value)
             assert pow(_, test_value)
-            assert _ ** test_value
+            assert _**test_value
 
             # associative?
             assert test_value + _
@@ -143,7 +141,7 @@ class TestVeritas(unittest.TestCase):
             assert test_value % _
             assert divmod(test_value, _)
             assert pow(test_value, _)
-            assert test_value ** _
+            assert test_value**_
 
             # rsub
             _ += test_value
