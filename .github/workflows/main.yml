@@ -27,5 +27,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements-dev.txt
 
+      - name: linters
+        run: |
+          black --check --verbose .
+          flake8 tests/ veritas/ setup.py
+
       - name: Run tests
         run: tox
