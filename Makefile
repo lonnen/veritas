@@ -18,7 +18,7 @@ clean: ## remove build artifacts
 .PHONY: lint
 lint: ## Lint and black reformat files
 	flake8 ${PROJECT} tests
-	black --target-version=py37 ${PROJECT} tests
+	black ${PROJECT} tests
 
 .PHONY: help
 test: ## run tests with single local version of python
